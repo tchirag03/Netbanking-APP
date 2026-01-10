@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: netbanking-postgres
+    environment:
+      POSTGRES_USER: netbanking
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: netbanking_db
+    ports:
+      - "5432:5432"
