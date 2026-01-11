@@ -11,7 +11,13 @@ import cors from "cors";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+  origin: 'https://crgt-bank-fe.onrender.com', // Your live frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}
+));
 console.log(process.env.DATABASE_URL);
 
 await connectDB();
