@@ -7,7 +7,11 @@ import { getAccount } from "./logic/Account.js";
 import { getTransactions, processPayment } from "./logic/Transaction.js";
 import { getProfile, getTotpSetup, verifyAndEnableTotp } from "./logic/Profile.js";
 import { authMiddleware } from "./middleware/auth.js";
+import {initializeDatabase} from "./schema/initialize.js";
 import cors from "cors";
+
+
+
 
 const app = express();
 app.use(express.json());
@@ -19,6 +23,8 @@ app.use(cors(
 }
 ));
 console.log(process.env.DATABASE_URL);
+
+await initializeDatabase();
 
 await connectDB();
 
