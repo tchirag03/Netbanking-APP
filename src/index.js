@@ -24,8 +24,6 @@ app.use(cors(
 ));
 console.log(process.env.DATABASE_URL);
 
-await initializeDatabase();
-
 await connectDB();
 
 app.get("/health", (req, res) => {
